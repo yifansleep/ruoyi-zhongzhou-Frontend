@@ -72,7 +72,7 @@ export function getCodeImg(): Promise<CaptchaInfoResult> {
 // 发送邮箱验证码
 export function sendEmailCode(email: string): Promise<SendCodeResult> {
   return request({
-    url: '/sendEmailCode',
+    url: '/register/sendEmailCode',
     headers: {
       isToken: false
     },
@@ -84,7 +84,7 @@ export function sendEmailCode(email: string): Promise<SendCodeResult> {
 // 发送短信验证码
 export function sendSmsCode(phonenumber: string): Promise<SendCodeResult> {
   return request({
-    url: '/sendSmsCode',
+    url: '/register/sendSmsCode',
     headers: {
       isToken: false
     },
@@ -96,7 +96,7 @@ export function sendSmsCode(phonenumber: string): Promise<SendCodeResult> {
 // 检查邮箱唯一性
 export function checkEmail(email: string): Promise<CheckUniqueResult> {
   return request({
-    url: '/checkEmail',
+    url: '/register/checkEmail',
     headers: {
       isToken: false
     },
@@ -108,7 +108,7 @@ export function checkEmail(email: string): Promise<CheckUniqueResult> {
 // 检查手机号唯一性
 export function checkPhonenumber(phonenumber: string): Promise<CheckUniqueResult> {
   return request({
-    url: '/checkPhonenumber',
+    url: '/register/checkPhonenumber',
     headers: {
       isToken: false
     },
