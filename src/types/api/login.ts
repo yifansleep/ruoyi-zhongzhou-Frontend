@@ -38,6 +38,10 @@ export interface RegisterForm {
   confirmPassword: string
   code: string
   uuid: string
+  email?: string
+  phonenumber?: string
+  emailCode?: string
+  smsCode?: string
 }
 
 /** 登录提交信息 */
@@ -47,4 +51,18 @@ export interface LoginForm {
   rememberMe?: boolean | string
   code: string
   uuid: string
+}
+
+/** 验证码发送响应 */
+export interface SendCodeResult extends AjaxResult {
+  /** 验证码ID */
+  codeId?: string
+  /** 验证码内容（仅用于测试/开发环境） */
+  code?: string
+}
+
+/** 唯一性检查响应 */
+export interface CheckUniqueResult extends AjaxResult {
+  /** 是否唯一 */
+  unique: boolean
 }

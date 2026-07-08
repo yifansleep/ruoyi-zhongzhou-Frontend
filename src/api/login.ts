@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-import type { SysRegister, LoginInfoResult, UserInfoResult, CaptchaInfoResult, AjaxResult } from '@/types'
+import type { SysRegister, LoginInfoResult, UserInfoResult, CaptchaInfoResult, AjaxResult, SendCodeResult, CheckUniqueResult } from '@/types'
 
 // 登录方法
 export function login(username: string, password: string, code: string, uuid: string): Promise<LoginInfoResult> {
@@ -66,5 +66,53 @@ export function getCodeImg(): Promise<CaptchaInfoResult> {
     },
     method: 'get',
     timeout: 20000
+  })
+}
+
+// 发送邮箱验证码
+export function sendEmailCode(email: string): Promise<SendCodeResult> {
+  return request({
+    url: '/sendEmailCode',
+    headers: {
+      isToken: false
+    },
+    method: 'post',
+    data: { email }
+  })
+}
+
+// 发送短信验证码
+export function sendSmsCode(phonenumber: string): Promise<SendCodeResult> {
+  return request({
+    url: '/sendSmsCode',
+    headers: {
+      isToken: false
+    },
+    method: 'post',
+    data: { phonenumber }
+  })
+}
+
+// 检查邮箱唯一性
+export function checkEmail(email: string): Promise<CheckUniqueResult> {
+  return request({
+    url: '/checkEmail',
+    headers: {
+      isToken: false
+    },
+    method: 'get',
+    params: { email }
+  })
+}
+
+// 检查手机号唯一性
+export function checkPhonenumber(phonenumber: string): Promise<CheckUniqueResult> {
+  return request({
+    url: '/checkPhonenumber',
+    headers: {
+      isToken: false
+    },
+    method: 'get',
+    params: { phonenumber }
   })
 }
