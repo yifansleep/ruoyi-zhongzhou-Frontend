@@ -239,6 +239,7 @@ function handleQuery() {
 function resetQuery() {
   proxy.resetForm("queryRef")
   queryParams.value.planId = undefined
+  queryParams.value.status = undefined
   handleQuery()
 }
 
@@ -291,7 +292,8 @@ function submitForm() {
 /** 删除按钮操作 */
 function handleDelete(row: NursingLevel) {
   const _ids = row.id || ids.value
-  proxy.$modal.confirm('是否确认删除护理等级编号为"' + _ids + '"的数据项？').then(function() {
+  const _idsStr = Array.isArray(_ids) ? _ids.join(',') : _ids
+  proxy.$modal.confirm('是否确认删除护理等级编号为"' + _idsStr + '"的数据项？').then(function() {
     return delLevel(_ids)
   }).then(() => {
     getList()

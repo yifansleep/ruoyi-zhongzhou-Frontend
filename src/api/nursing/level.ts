@@ -21,7 +21,7 @@ export function getLevel(id: number): Promise<AjaxResult<NursingLevel>> {
 // 查询所有护理等级
 export function listAllLevel(): Promise<AjaxResult<NursingLevel[]>> {
   return request({
-    url: '/nursing/level/listAll',
+    url: '/nursing/level/all',
     method: 'get'
   })
 }
