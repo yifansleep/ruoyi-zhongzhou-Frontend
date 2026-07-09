@@ -36,7 +36,7 @@ export function usePasswordRule() {
   })
   // 校验prompt的inputValidator函数
   const pwdPromptValidator = (value: string) => {
-    const rule = PWD_RULES['0']
+    const rule = PWD_RULES['3']
     if (!value || value.length < 6 || value.length > 20) {
       return '密码长度必须介于 6 和 20 之间'
     }
@@ -55,7 +55,7 @@ export function usePasswordRule() {
   })
   // 注册页面密码校验
   const registerPwdValidator = computed(() => {
-    const rule = PWD_RULES['0']
+    const rule = PWD_RULES['3']
     return [
       { required: true, message: '请输入您的密码', trigger: 'blur' },
       { min: 6, max: 20, message: '用户密码长度必须介于 6 和 20 之间', trigger: 'blur' },
