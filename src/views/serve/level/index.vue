@@ -130,7 +130,7 @@
           </el-select>
         </el-form-item>
         <el-form-item label="收费标准" prop="fee">
-          <el-input-number v-model="form.fee" :precision="2" :min="0" :max="999999" controls-position="right" placeholder="请输入收费标准" style="width: 100%" />
+          <el-input-number v-model="form.fee" :precision="2" :min="0" :max="999999" step="0.01" controls-position="right" placeholder="请输入收费标准" style="width: 100%" />
         </el-form-item>
         <el-form-item label="等级描述" prop="description">
           <el-input v-model="form.description" type="textarea" placeholder="请输入等级描述" />

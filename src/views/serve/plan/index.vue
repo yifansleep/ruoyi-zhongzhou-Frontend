@@ -304,6 +304,7 @@ function handleQuery() {
 /** 重置按钮操作 */
 function resetQuery() {
   proxy.resetForm("queryRef")
+  queryParams.value.status = undefined
   handleQuery()
 }
 
@@ -356,7 +357,8 @@ function submitForm() {
 /** 删除按钮操作 */
 function handleDelete(row: NursingPlan) {
   const _ids = row.id || ids.value
-  proxy.$modal.confirm('是否确认删除护理计划编号为"' + _ids + '"的数据项？').then(function() {
+  const _idsStr = Array.isArray(_ids) ? _ids.join(',') : _ids
+  proxy.$modal.confirm('是否确认删除护理计划编号为"' + _idsStr + '"的数据项？').then(function() {
     return delPlan(_ids)
   }).then(() => {
     getList()
@@ -394,6 +396,9 @@ function getProjectList() {
   projectLoading.value = true
   listPlanProject(currentPlanId.value).then(response => {
     projectList.value = response.data || []
+  }).catch(() => {
+    projectList.value = []
+  }).finally(() => {
     projectLoading.value = false
   })
 }
