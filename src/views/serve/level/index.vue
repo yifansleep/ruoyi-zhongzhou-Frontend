@@ -221,7 +221,7 @@ function reset() {
     id: null,
     name: null,
     planId: null,
-    fee: null,
+    fee: 0,
     description: null,
     status: 1,
     remark: null,

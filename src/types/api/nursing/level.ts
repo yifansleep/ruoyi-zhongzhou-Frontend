@@ -15,13 +15,13 @@ export interface NursingLevel extends BaseEntity {
   /** 编号 */
   id?: number;
   /** 等级名称 */
-  name?: string;
+  name: string;
   /** 关联护理计划ID */
-  planId?: number;
+  planId: number;
   /** 护理计划名称 */
   planName?: string;
   /** 收费标准（元） */
-  fee?: number;
+  fee: number;
   /** 等级描述 */
   description?: string;
   /** 状态（0：禁用，1：启用） */

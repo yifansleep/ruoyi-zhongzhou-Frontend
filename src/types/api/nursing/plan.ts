@@ -35,13 +35,13 @@ export interface ProjectPlan {
   /** 计划ID */
   planId?: number;
   /** 项目ID */
-  projectId?: number;
+  projectId: number;
   /** 项目名称 */
   projectName?: string;
   /** 计划执行时间 */
-  executeTime?: string;
+  executeTime: string;
   /** 执行周期（0：天，1：周，2：月） */
-  executeCycle?: number;
+  executeCycle: number;
   /** 执行频次 */
   executeFrequency?: number;
   /** 备注 */
