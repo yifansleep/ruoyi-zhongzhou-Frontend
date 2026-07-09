@@ -29,3 +29,5 @@ export * from "./monitor/online";
 export * from "./tool/gen";
 // serve 模块
 export * from "./serve/project";
+// nursing 模块
+export * from "./nursing";
